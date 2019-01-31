@@ -7,7 +7,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
 <ion-card>
   <ion-slides pager autoplay="3000" loop>
 
@@ -15,7 +15,22 @@
       <img src="./assets/imgs/{{number}}.png">
     </ion-slide>
 
-
   </ion-slides>
 </ion-card>
+
+  <img src="./assets/imgs/banner.png">
+
+  <ion-grid>
+    <ion-row>
+      <ion-slides #itemSlides>
+      <ion-slide *ngFor="let product of products">
+        <ion-card no-padding>
+          <img [src]="product.featured_src">
+          <h1 padding center>{{product.title}}</h1>
+          <p center padding [innerHTML]="product.short_description"></p>
+        </ion-card>
+      </ion-slide>
+      </ion-slides>
+    </ion-row>
+  </ion-grid>
 </ion-content>
