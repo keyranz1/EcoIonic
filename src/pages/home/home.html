@@ -17,20 +17,43 @@
 
   </ion-slides>
 </ion-card>
-
+<ion-card padding style="margin-top:15px !important; margin-bottom:10px !important;">
   <img src="./assets/imgs/banner.png">
+</ion-card>
+
 
   <ion-grid>
-    <ion-row>
+    <ion-row style="border: 1px solid cadetblue">
       <ion-slides #itemSlides>
       <ion-slide *ngFor="let product of products">
         <ion-card no-padding>
           <img [src]="product.featured_src">
           <h1 padding center>{{product.title}}</h1>
-          <p center padding [innerHTML]="product.short_description"></p>
+          <p center padding [innerHTML]="product.description"></p>
         </ion-card>
       </ion-slide>
       </ion-slides>
     </ion-row>
   </ion-grid>
+
+  <ion-list>
+    <ion-item *ngFor="let product of moreProducts" text-wrap>
+      <ion-thumbnail item-left>
+        <img [src]="product.featured_src">
+      </ion-thumbnail>
+      <h1>{{product.title}}</h1>
+      <p>
+        <span [innerHTML]="product.short_description.substr(0,50)+'...'"></span>
+        <span [innerHTML]="product.price_html"></span>
+      </p>
+
+      <button ion-button icon clear item-right>
+        <ion-icon name="arrow-forward"></ion-icon>
+      </button>
+    </ion-item>
+  </ion-list>
+
+  <ion-infinite-scroll (ionInfinite)="loadMoreProducts($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>
