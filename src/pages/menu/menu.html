@@ -5,12 +5,18 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-content>
+  <ion-content class="card-background-page">
+    <ion-card no-padding >
+      <img src="./assets/imgs/menuCard.png">
+      <div class="card-title">EcoIonic</div>
+      <div class="card-subtitle">American way of Life</div>
+    </ion-card>
     <ion-list>
       <!--<button menuClose ion-item *ngFor="let category of categories">-->
         <!--{{category.name}}-->
       <!--</button>-->
       <ion-item *ngFor="let category of categories" text-wrap>
+        <ion-icon [name]="category.icon" item-left large></ion-icon>
         <h2>{{category.name}}</h2>
       </ion-item>
     </ion-list>

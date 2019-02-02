@@ -34,6 +34,18 @@ export class MenuPage {
 
       for(let i = 1; i< temp.length; i++ ){
         if(temp[i].parent == 0) {
+
+          if(temp[i].slug =='clothing'){
+            temp[i].icon = 'shirt';
+          }
+          if(temp[i].slug =='decor'){
+            temp[i].icon = 'brush';
+          }
+
+          if(temp[i].slug =='music'){
+            temp[i].icon = 'musical-note';
+          }
+
           this.categories.push(temp[i]);
         }
       }
