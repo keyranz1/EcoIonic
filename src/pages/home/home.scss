@@ -3,4 +3,18 @@ page-home {
     margin: 0 !important;
     width:100% !important;
   }
+
+  .banner{
+    position: relative;
+    text-align: center;
+
+  }
+  .moto{
+    position: absolute;
+    top: 49.5% !important;
+    color: #b51e25;
+    width: 70%;
+    font-weight: bolder;
+    font-size: 1.3em;
+  }
 }

@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { NavController, NavParams } from 'ionic-angular';
 import { HomePage} from '../home/home';
 import * as WooCommerce from 'woocommerce-api';
+import {ProductCategoryPage} from '../product-category/product-category';
 /**
  * Generated class for the MenuPage page.
  *
@@ -18,6 +19,7 @@ export class MenuPage {
   homePage: any;
   wooCommerce: any;
   categories: any[];
+  @ViewChild('content') childNavCtrl: NavController;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.homePage = HomePage;
@@ -56,6 +58,11 @@ export class MenuPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MenuPage');
+  }
+
+  openCategoryPage(category){
+    console.log(category);
+    this.childNavCtrl.setRoot(ProductCategoryPage,{'category': category});
   }
 
 }
