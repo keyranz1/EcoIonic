@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import {NavController, NavParams, ToastController} from 'ionic-angular';
 import * as WooCommerce from 'woocommerce-api';
+import {ProductDetailsPage} from '../product-details/product-details';
+
 /**
  * Generated class for the ProductCategoryPage page.
  *
@@ -38,6 +40,7 @@ export class ProductCategoryPage {
     })
   }
 
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProductCategoryPage');
   }
@@ -54,14 +57,14 @@ export class ProductCategoryPage {
 
       if(temp.length < 10){
         event.enable(false);
-        // this.toastCtrl.create({
-        //   message: 'No more new products!',
-        //   duration:1500
-        // }).present();
       }
     }, (err) => {
       console.log(err);
     });
+  }
+
+  openProductPage(product){
+    this.navCtrl.push(ProductDetailsPage,{"product": product});
   }
 
 }
