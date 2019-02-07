@@ -21,9 +21,9 @@ export class HomePage {
     this.page = 2;
 
     this.wooCommerce = WooCommerce({
-      url: 'http://localhost:8888/myServer/',
-      consumerKey: 'ck_b85fb8ebe54ccec41de71055905281025fc12f11',
-      consumerSecret: 'cs_8e02bf6198df63c05143d725e791aeb120808ace'
+      url: 'http://18.220.213.63/',
+      consumerKey: 'ck_f02b14b3b10ba414052703e80074ee0249aac21c',
+      consumerSecret: 'cs_0bf2f3967567f15e70b59c6a161f65902b2985a6'
     });
 
     this.loadMoreProducts(null);
