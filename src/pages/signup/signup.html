@@ -82,5 +82,50 @@
       <ion-label>Contact no.:</ion-label>
       <ion-input type="number" [(ngModel)]="newUser.billing_address.contactNumber"></ion-input>
     </ion-item>
+
+    <ion-item>
+      <ion-label>
+        Same shipping details
+      </ion-label>
+      <ion-checkbox (ionChange)="setBillingToShipping()"></ion-checkbox>
+    </ion-item>
+
+    <ion-item-divider color="color3" *ngIf="!billing_shipping_same">Shipping Details</ion-item-divider>
+    <ion-item>
+      <ion-label>Address Line 1</ion-label>
+      <ion-textarea type="text" maxlength="80" [(ngModel)]="newUser.shipping_address.address_1"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label>Address Line 2</ion-label>
+      <ion-textarea type="text" maxlength="80" [(ngModel)]="newUser.shipping_address.address_2"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label>Country</ion-label>
+      <ion-select [(ngModel)]="newUser.shipping_address.country">
+        <ion-option value="United States" selected="true">United States</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>States</ion-label>
+      <ion-select [(ngModel)]="newUser.shipping_address.states">
+        <ion-option value="Texas" selected="true">Texas</ion-option>
+        <ion-option value="Louisiana" >Louisiana</ion-option>
+        <ion-option value="Florida" >Florida</ion-option>
+        <ion-option value="California" >California</ion-option>
+        <ion-option value="Colorado" >Colorado</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>City</ion-label>
+      <ion-input type="text" [(ngModel)]="newUser.shipping_address.city"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Zip Code</ion-label>
+      <ion-input type="number" [(ngModel)]="newUser.shipping_address.zip_code"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Contact no.:</ion-label>
+      <ion-input type="number" [(ngModel)]="newUser.shipping_address.contactNumber"></ion-input>
+    </ion-item>
   </ion-list>
 </ion-content>
