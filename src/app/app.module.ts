@@ -11,6 +11,8 @@ import {MenuPage} from '../pages/menu/menu';
 import {ProductCategoryPage} from '../pages/product-category/product-category';
 import {ProductDetailsPage} from '../pages/product-details/product-details';
 
+import {IonicStorageModule} from '@ionic/storage';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -22,6 +24,7 @@ import {ProductDetailsPage} from '../pages/product-details/product-details';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
