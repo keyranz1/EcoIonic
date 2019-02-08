@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import {NavController, NavParams, ViewController} from 'ionic-angular';
 import { Storage} from '@ionic/storage';
 
 @Component({
@@ -12,7 +12,8 @@ export class CartPage {
   totalPrice: any;
   showEmptyCartMessage : boolean = false;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+              private storage: Storage, private viewCtrl: ViewController) {
 
     this.totalPrice = 0.0;
     this.storage.ready().then(()=>{
@@ -34,6 +35,24 @@ export class CartPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CartPage');
+  }
+
+  removeFromCart(item,i){
+    let price = item.price;
+    let qty = item.quantity;
+
+    this.cartItems.splice(i,1);
+    this.storage.set("cart",this.cartItems).then(()=>{
+      this.totalPrice = this.totalPrice - (price * qty);
+    });
+
+    if(this.cartItems.length == 0){
+      this.showEmptyCartMessage = true;
+    }
+  }
+
+  closeModal(){
+    this.viewCtrl.dismiss();
   }
 
 }
