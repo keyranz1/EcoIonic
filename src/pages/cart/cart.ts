@@ -38,7 +38,7 @@ export class CartPage {
   }
 
   removeFromCart(item,i){
-    let price = item.price;
+    let price = item.product.price;
     let qty = item.quantity;
 
     this.cartItems.splice(i,1);
