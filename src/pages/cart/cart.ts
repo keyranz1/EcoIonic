@@ -10,12 +10,23 @@ export class CartPage {
 
   cartItems : any[] = [];
   totalPrice: any;
+  showEmptyCartMessage : boolean = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage) {
+
+    this.totalPrice = 0.0;
     this.storage.ready().then(()=>{
       this.storage.get("cart").then((data)=>{
         this.cartItems = data;
         console.log(this.cartItems);
+
+        if(this.cartItems.length > 0){
+          this.cartItems.forEach((item,index)=>{
+            this.totalPrice += (item.product.price * item.quantity);
+          });
+        } else {
+          this.showEmptyCartMessage = true;
+        }
 
       })
     })

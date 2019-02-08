@@ -10,6 +10,17 @@
 
 <ion-content padding>
 
+  <ion-card>
+    <ion-grid style="text-align: center">
+      <ion-row>
+          <ion-col>Your Cart Description</ion-col>
+      </ion-row>
+      <ion-row [hidden]="!showEmptyCartMessage">
+          <ion-col>There are no products in your cart!</ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
   <ion-list>
     <ion-item *ngFor="let item of cartItems; let i =index">
       <ion-thumbnail item-left>
@@ -29,4 +40,16 @@
 
   </ion-list>
 
+  <!--<ion-grid>-->
+    <ion-card>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-2></ion-col>
+          <ion-col col-4><b>TOTAL</b></ion-col>
+          <ion-col col-3></ion-col>
+          <ion-col col-3 style="text-align: right">$ <b>{{totalPrice}}</b></ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+  <!--</ion-grid>-->
 </ion-content>
