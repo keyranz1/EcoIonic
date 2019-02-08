@@ -15,7 +15,7 @@
 
 <ion-content>
   <ion-list>
-    <ion-item-divider color="danger">Personal Details</ion-item-divider>
+    <ion-item-divider color="color1">Personal Details</ion-item-divider>
     <ion-item>
       <ion-label>First Name</ion-label>
       <ion-input type="text" [(ngModel)]="newUser.first_name"></ion-input>
@@ -29,16 +29,58 @@
       <ion-input type="text" [(ngModel)]="newUser.email"></ion-input>
     </ion-item>
     <ion-item>
+      <ion-label>Phone Number</ion-label>
+      <ion-input type="number" [(ngModel)]="newUser.phone"></ion-input>
+    </ion-item>
+    <ion-item>
       <ion-label>Username</ion-label>
       <ion-input type="text" [(ngModel)]="newUser.username"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Password</ion-label>
-      <ion-input type="text" [(ngModel)]="newUser.password"></ion-input>
+      <ion-input type="password" [(ngModel)]="newUser.password"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Confirm Password</ion-label>
-      <ion-input type="text" [(ngModel)]="newUser.confirm_password"></ion-input>
+      <ion-input type="password" [(ngModel)]="newUser.confirm_password"></ion-input>
+    </ion-item>
+
+    <ion-item-divider color="color3">Billing Details</ion-item-divider>
+    <ion-item>
+      <ion-label>Address Line 1</ion-label>
+      <ion-textarea type="text" maxlength="80" [(ngModel)]="newUser.billing_address.address_1"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label>Address Line 2</ion-label>
+      <ion-textarea type="text" maxlength="80" [(ngModel)]="newUser.billing_address.address_2"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label>Country</ion-label>
+      <ion-select [(ngModel)]="newUser.billing_address.country">
+        <ion-option value="United States" selected="true">United States</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>States</ion-label>
+      <ion-select [(ngModel)]="newUser.billing_address.states">
+      <ion-option value="Texas" selected="true">Texas</ion-option>
+      <ion-option value="Louisiana" >Louisiana</ion-option>
+      <ion-option value="Florida" >Florida</ion-option>
+      <ion-option value="California" >California</ion-option>
+      <ion-option value="Colorado" >Colorado</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>City</ion-label>
+      <ion-input type="text" [(ngModel)]="newUser.billing_address.city"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Zip Code</ion-label>
+      <ion-input type="number" [(ngModel)]="newUser.billing_address.zip_code"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Contact no.:</ion-label>
+      <ion-input type="number" [(ngModel)]="newUser.billing_address.contactNumber"></ion-input>
     </ion-item>
   </ion-list>
 </ion-content>
