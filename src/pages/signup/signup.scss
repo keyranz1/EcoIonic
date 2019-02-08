@@ -1,3 +1,18 @@
-page-signup {
 
-}
+  .success{
+    .toast-wrapper{
+      background-color: seagreen;
+    }
+
+  }
+  .warning{
+    .toast-wrapper {
+      background: color($colors, color4);
+    }
+  }
+  .fail{
+    .toast-wrapper{
+      background: color($colors, danger);
+    }
+  }
+
