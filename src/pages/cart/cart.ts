@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-
+import { Storage} from '@ionic/storage';
 
 @Component({
   selector: 'page-cart',
@@ -8,7 +8,17 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class CartPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  cartItems : any[] = [];
+  totalPrice: any;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage) {
+    this.storage.ready().then(()=>{
+      this.storage.get("cart").then((data)=>{
+        this.cartItems = data;
+        console.log(this.cartItems);
+
+      })
+    })
   }
 
   ionViewDidLoad() {
