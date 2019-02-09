@@ -76,4 +76,51 @@ export class SignupPage {
     }
   }
 
+  signUp(){
+    let customerData = {
+      customer: {}
+    }
+
+    customerData.customer = {
+      "email": this.newUser.email,
+      "first_name": this.newUser.first_name,
+      "last_name": this.newUser.last_name,
+      "username": this.newUser.username,
+      "password": this.newUser.password,
+      "billing_address": {
+        "email": this.newUser.email,
+        "first_name": this.newUser.first_name,
+        "last_name": this.newUser.last_name,
+        "comapany": "",
+        "address_1": this.newUser.billing_address.address_1,
+        "address_2": this.newUser.billing_address.address_2,
+        "city": this.newUser.billing_address.city,
+        "country": this.newUser.billing_address.country,
+        "state": this.newUser.billing_address.state,
+        "postcode": this.newUser.billing_address.postcode,
+      },
+      "shipping_address":{
+        "first_name": this.newUser.first_name,
+        "last_name": this.newUser.last_name,
+        "comapany": "",
+        "address_1": this.newUser.shipping_address.address_1,
+        "address_2": this.newUser.shipping_address.address_2,
+        "city": this.newUser.shipping_address.city,
+        "country": this.newUser.shipping_address.country,
+        "state": this.newUser.shipping_address.state,
+        "postcode": this.newUser.shipping_address.postcode,
+      }
+
+    }
+
+    if(this.billing_shipping_same){
+      this.newUser.shipping_address = this.newUser.billing_address;
+    }
+
+    this.wooCommerce.postAsync("customers",customerData).then((data)=>{
+        console.log(data);
+    });
+
+  }
+
 }

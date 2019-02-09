@@ -30,10 +30,6 @@
       <ion-input type="text" [(ngModel)]="newUser.email" (blur)="checkEmail()"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>Phone Number</ion-label>
-      <ion-input type="number" [(ngModel)]="newUser.phone"></ion-input>
-    </ion-item>
-    <ion-item>
       <ion-label>Username</ion-label>
       <ion-input type="text" [(ngModel)]="newUser.username"></ion-input>
     </ion-item>
@@ -79,7 +75,7 @@
     </ion-item>
     <ion-item>
       <ion-label>Zip Code</ion-label>
-      <ion-input type="number" [(ngModel)]="newUser.billing_address.zip_code"></ion-input>
+      <ion-input type="number" [(ngModel)]="newUser.billing_address.postcode"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Contact no.:</ion-label>
@@ -126,11 +122,7 @@
     </ion-item>
     <ion-item>
       <ion-label>Zip Code</ion-label>
-      <ion-input type="number" [(ngModel)]="newUser.shipping_address.zip_code"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label>Contact no.:</ion-label>
-      <ion-input type="number" [(ngModel)]="newUser.shipping_address.contactNumber"></ion-input>
+      <ion-input type="number" [(ngModel)]="newUser.shipping_address.postcode"></ion-input>
     </ion-item>
     </ion-card>
   </ion-list>
