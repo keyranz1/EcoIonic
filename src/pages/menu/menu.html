@@ -19,8 +19,15 @@
         <ion-icon [name]="category.icon" item-left large></ion-icon>
         <h2>{{category.name}}</h2>
       </ion-item>
+
+      <ion-item (click)="openPage('signUp')" menuClose>
+        <ion-icon name="md-clipboard" item-left large></ion-icon>
+        <h2>Sign Up</h2>
+        <p>For a new account</p>
+      </ion-item>
     </ion-list>
   </ion-content>
+
 
 </ion-menu>
 
